@@ -1,0 +1,1738 @@
+# PROJECT: WHOLESALE BUSINESS MANAGEMENT APPLICATION
+## Complete Product Requirements and Development Specification
+
+### 1. ROLE AND PROJECT OBJECTIVE
+
+Act as a senior Android application developer, full-stack software architect, database engineer, UI/UX designer, and business management software specialist.
+
+Develop a complete, production-ready Wholesale Business Management Application for small and medium-sized wholesale businesses in India.
+
+The application should replace traditional handwritten bills, customer notebooks, manual order books, and physical payment records.
+
+The application must help business owners manage their complete wholesale business from one mobile application.
+
+### Primary objectives
+
+- Manage customers and their complete history.
+- Manage products and flexible selling options.
+- Create professional bills.
+- Record prepaid and postpaid transactions.
+- Track customer outstanding balances.
+- Collect orders manually through sales executives.
+- Manage inventory and stock.
+- Manage suppliers and purchases.
+- Maintain complete payment history.
+- Generate printable invoices and customer statements.
+- Support multiple employees.
+- Work without internet using local mobile storage.
+
+The application must be extremely simple for non-technical users, including older shop owners.
+
+Prioritize usability, speed, flexibility, and financial accuracy.
+
+---
+
+# 2. PLATFORM AND TECHNOLOGY
+
+### Primary platform
+
+Develop a dedicated Android mobile application.
+
+Do not build this as merely a responsive website.
+
+### Recommended technology stack
+
+Mobile frontend:
+- Flutter
+- Dart
+
+Local database:
+- SQLite
+- Drift ORM
+
+Optional backend:
+- Node.js
+- TypeScript
+- PostgreSQL
+
+Additional technologies:
+- Android printing support
+- PDF generation
+- Local database backup
+- Optional cloud synchronization
+
+### Application requirements
+
+- Android-first development.
+- Mobile-first interface.
+- Installable application.
+- Fast loading.
+- Smooth navigation.
+- Large touch-friendly buttons.
+- Light and dark themes.
+- Responsive layouts.
+- Future-ready iOS support.
+
+---
+
+# 3. LOCAL STORAGE AND OFFLINE FUNCTIONALITY
+
+The mobile device's local database must be the primary operational database.
+
+Use SQLite to store business information directly on the mobile device.
+
+### Store locally
+
+- Business information.
+- Customer details.
+- Products.
+- Product categories.
+- Product selling options.
+- Product prices.
+- Inventory.
+- Orders.
+- Invoices.
+- Invoice items.
+- Payments.
+- Customer ledger.
+- Suppliers.
+- Purchases.
+- Returns.
+- Employee information.
+- Print templates.
+- Application settings.
+
+### Offline requirements
+
+Users must be able to perform all essential business activities without internet access.
+
+They must be able to:
+
+- Add customers.
+- Edit customers.
+- Add products.
+- Add selling options.
+- Edit product prices.
+- Create orders.
+- Generate bills.
+- Record payments.
+- View customer history.
+- View invoices.
+- Manage inventory.
+- Print bills.
+- Generate PDFs.
+- View reports.
+
+Data must remain available after closing and reopening the application.
+
+### Backup
+
+Provide:
+
+- Manual backup.
+- Automatic local backup.
+- Export database.
+- Restore database.
+- Optional encrypted cloud backup.
+
+### Optional multi-device synchronization
+
+The application must support multiple employees using different mobile devices.
+
+Provide optional synchronization through a secure backend.
+
+When internet is available:
+- Synchronize customers.
+- Synchronize products.
+- Synchronize orders.
+- Synchronize invoices.
+- Synchronize payments.
+- Synchronize inventory.
+
+Prevent duplicate transactions and conflicting financial updates.
+
+Display:
+- Synced
+- Pending
+- Failed
+
+Local functionality must never depend on cloud availability.
+
+---
+
+# 4. MANUAL BUSINESS OPERATIONS
+
+Everything related to business activities must be manually entered by the owner or authorized employees.
+
+### Manual operations
+
+- Add customers.
+- Add products.
+- Configure selling options.
+- Enter selling prices.
+- Enter stock.
+- Create orders.
+- Generate bills.
+- Record payments.
+- Add purchases.
+- Adjust inventory.
+- Enter supplier information.
+
+### Automatic calculations
+
+- Bill totals.
+- Product-wise amounts.
+- Outstanding balances.
+- Customer ledger.
+- Stock deductions.
+- Stock additions.
+- Payment balances.
+- Reports.
+- Invoice numbers.
+
+### Strictly prohibited integrations
+
+Do not connect to:
+
+- Bank accounts.
+- Google Pay.
+- PhonePe.
+- Paytm.
+- UPI APIs.
+- Payment gateways.
+- Automatic payment verification services.
+- Automatic bank transaction fetching.
+- Financial account aggregation services.
+
+The application must never initiate or process payments.
+
+Payment methods are only manual recording categories.
+
+For example, if a customer pays ₹5,000 through PhonePe, the employee manually enters ₹5,000 and selects UPI.
+
+The application must not connect to PhonePe or fetch any payment information.
+
+---
+
+# 5. MULTILINGUAL SUPPORT – ENGLISH, TELUGU AND HINDI
+
+Language support is a major requirement.
+
+The application must support three languages:
+
+1. English – Primary language.
+2. Telugu (తెలుగు) – Primary regional language.
+3. Hindi (हिन्दी) – Additional language.
+
+### Initial language selection
+
+During the first application setup, allow users to select their preferred language.
+
+Allow changing the language anytime through Settings.
+
+### Flexible data entry
+
+The language used for the application interface must be independent of the language used for entering business information.
+
+Users must be able to enter information in English or Telugu regardless of the selected interface language.
+
+Examples:
+
+Customer name:
+- Ravi
+- రవి
+
+Shop name:
+- Ravi Traders
+- రవి ట్రేడర్స్
+
+Product name:
+- Ragi Flour
+- రాగి పిండి
+
+Category:
+- Flour
+- పిండి
+
+Address:
+- Anantapur
+- అనంతపురం
+
+Allow English and Telugu in the same record.
+
+Never automatically translate or modify saved names.
+
+### Multilingual search
+
+Allow searching customers and products using English and Telugu text.
+
+Examples:
+- Search రాగి to find రాగి పిండి.
+- Search Ragi to find Ragi Flour.
+
+Support Unicode-aware search.
+
+### Interface translation
+
+Translate all application screens, buttons, forms, navigation, notifications, error messages, and settings into the selected language.
+
+Use simple, natural Telugu and Hindi suitable for wholesale shop owners.
+
+### Telugu printing
+
+All printed invoices, receipts, customer statements, and PDFs must support Telugu Unicode fonts.
+
+English and Telugu must be printable together without missing characters.
+
+---
+
+# 6. ACCESSIBILITY FOR OLDER USERS
+
+Design the application for people who may not be familiar with smartphones.
+
+### Accessibility requirements
+
+- Large default text.
+- Adjustable font size.
+- Large buttons.
+- Clear labels.
+- High contrast.
+- Simple navigation.
+- Clear icons with text.
+- Easy search.
+- Minimal typing.
+- Minimal screens.
+- Simple forms.
+- Clear confirmation messages.
+
+Provide text size options:
+
+- Normal
+- Large
+- Extra Large
+
+Do not use complicated technical terminology.
+
+The application should be comfortable for older Telugu-speaking business owners.
+
+---
+
+# 7. USER MANAGEMENT AND MULTI-USER ACCESS
+
+Support multiple employees under one business.
+
+### User roles
+
+1. Owner / Administrator
+2. Manager
+3. Billing Staff
+4. Sales Executive
+5. Inventory Staff
+
+### Owner
+
+Full access to all modules.
+
+### Manager
+
+Configurable access to customers, products, orders, bills, payments, and inventory.
+
+### Billing Staff
+
+- Create bills.
+- Select customers.
+- Add products.
+- Enter quantities.
+- Record payments.
+- Print bills.
+
+### Sales Executive
+
+- View assigned customers.
+- Search customers.
+- Add customers if authorized.
+- Create manual orders.
+- Add product selling options.
+- Enter quantities.
+- View their order history.
+- Record payments if authorized.
+
+### Inventory Staff
+
+- View products.
+- Record purchases.
+- Update stock.
+- Record stock adjustments.
+
+The owner must control employee permissions.
+
+Maintain activity logs for important changes.
+
+---
+
+# 8. DASHBOARD
+
+Create a clean business dashboard.
+
+### Statistics
+
+- Today's sales.
+- Monthly sales.
+- Total customers.
+- Total products.
+- Total orders.
+- Total bags sold.
+- Total packets sold.
+- Total kilograms sold.
+- Total boxes sold.
+- Total payments received.
+- Total outstanding balances.
+- Pending orders.
+- Low-stock products.
+
+### Dashboard sections
+
+- Recent invoices.
+- Recent orders.
+- Recent payments.
+- Customers with pending balances.
+- Top-selling products.
+- Monthly sales chart.
+- Daily sales overview.
+- Low-stock alerts.
+- Employee activities.
+
+### Quick actions
+
+- New Bill
+- New Order
+- Add Customer
+- Add Product
+- Record Payment
+- View Customers
+- View Reports
+
+Provide date filters:
+
+- Today.
+- Yesterday.
+- This week.
+- This month.
+- Last month.
+- Custom date.
+
+All statistics must use actual database transactions.
+
+---
+
+# 9. CUSTOMER MANAGEMENT
+
+Keep customer creation extremely simple.
+
+### Add customer form
+
+Only these fields should appear:
+
+1. Customer Name – Required.
+2. Shop Name – Required.
+3. Mobile Number – Required.
+4. Address – Optional.
+
+Do not ask for:
+
+- GSTIN.
+- Credit limit.
+- Payment due period.
+- Opening balance.
+- PIN code.
+- Unnecessary financial information.
+
+Provide a Save Customer button.
+
+### Customer search
+
+Allow searching by:
+
+- Customer name.
+- Shop name.
+- Mobile number.
+
+Display matching customers dynamically while typing.
+
+Provide Add New Customer directly inside billing and order screens.
+
+Warn about possible duplicate customers.
+
+### Individual customer profile
+
+Every customer must have a separate profile.
+
+Display:
+
+- Customer name.
+- Shop name.
+- Mobile number.
+- Address.
+- Total orders.
+- Total bills.
+- Total purchase amount.
+- Total amount paid.
+- Remaining outstanding balance.
+- Total bags purchased.
+- Total packets purchased.
+- Last purchase date.
+- Last payment date.
+
+### Customer profile tabs
+
+1. Overview.
+2. Orders.
+3. Bills.
+4. Payments.
+5. History.
+6. Ledger.
+
+Allow editing customer contact information without modifying historical invoices.
+
+Provide customer history printing and PDF export.
+
+---
+
+# 10. PRODUCT MANAGEMENT – FLEXIBLE SELLING OPTIONS
+
+This is the most important feature of the application.
+
+One product must support multiple selling units, packaging options, and independent prices.
+
+The business owner should decide how each product is sold.
+
+### Step 1: Add Product
+
+Ask only:
+
+- Product Name.
+- Category.
+
+Examples:
+
+Product names:
+- Ragi Flour.
+- Wheat Flour.
+- Rice Flour.
+- Chilli Powder.
+- Turmeric Powder.
+
+Categories:
+- Flour.
+- Spices.
+- Rice.
+- Pulses.
+- Grains.
+- Other.
+
+Do not ask for HSN code during product creation.
+
+### Step 2: Add Selling Options
+
+After entering the product name and category, provide:
+
++ Add Selling Option
+
+For every selling option, ask:
+
+1. Variety / Selling Option Name.
+2. Selling Unit.
+3. Package Weight or Contents, if applicable.
+4. Selling Price.
+5. Minimum Stock.
+
+### Supported selling units
+
+- KG.
+- Bags.
+- Packets.
+- Boxes.
+- Pieces.
+- Grams.
+- Litres.
+- Millilitres.
+- Custom units.
+
+The owner decides which options are available for each product.
+
+### Example: Ragi Flour
+
+Product Name: Ragi Flour.
+
+Category: Flour.
+
+Selling Option 1:
+
+- Variety Name: Loose KG.
+- Selling Unit: KG.
+- Price: ₹110 per KG.
+- Minimum Stock: 10 KG.
+
+Selling Option 2:
+
+- Variety Name: 25 KG Bag.
+- Selling Unit: Bag.
+- Contents: 25 KG per bag.
+- Price: ₹2,400 per bag.
+- Minimum Stock: 5 bags.
+
+Selling Option 3:
+
+- Variety Name: 100 g Packet.
+- Selling Unit: Packet.
+- Contents: 100 grams per packet.
+- Price: ₹15 per packet.
+- Minimum Stock: 50 packets.
+
+Selling Option 4:
+
+- Variety Name: Single Piece.
+- Selling Unit: Piece.
+- Contents: 1 piece.
+- Price: ₹10 per piece.
+- Minimum Stock: 20 pieces.
+
+Allow unlimited selling options for one product.
+
+### Independent pricing
+
+Each selling option must have its own selling price.
+
+The application must support:
+
+- Price per KG.
+- Price per bag.
+- Price per packet.
+- Price per box.
+- Price per piece.
+
+Do not force all options to use one common price.
+
+Allow authorized users to manually change prices.
+
+### Minimum stock
+
+Each selling option must have its own minimum stock level.
+
+For example:
+
+- KG: 10.
+- Bags: 5.
+- Packets: 50.
+- Pieces: 20.
+
+Display low-stock alerts when the minimum is reached.
+
+### Product management functionality
+
+- Add product.
+- Edit product.
+- Add selling option.
+- Edit selling option.
+- Deactivate selling option.
+- Search product.
+- Search by category.
+- View product history.
+- View variant-wise stock.
+
+Keep the interface simple and avoid displaying complicated conversion fields unless needed.
+
+---
+
+# 11. PRODUCT UNIT CONVERSION AND STOCK LOGIC
+
+The application must understand the relationship between different selling units.
+
+For example:
+
+- 1 Bag = 25 KG.
+- 1 Packet = 100 grams.
+- 1 Box = 12 Pieces.
+
+Use a common base measurement for compatible stock calculations.
+
+Example:
+
+Physical stock: 100 KG.
+
+Customer purchases:
+
+- 2 bags.
+- Each bag contains 25 KG.
+
+Stock deduction:
+
+100 KG - 50 KG = 50 KG.
+
+For independently packaged products, allow stock to be maintained separately by packet, bag, or box.
+
+Do not assume that all products can be converted between selling units.
+
+Allow the owner to configure the relationship.
+
+If a product's stock is maintained in KG, deduct the correct converted weight when a bag or packet is sold.
+
+If stock is maintained as individually packaged units, deduct the number of packages sold.
+
+Prevent accidental negative stock unless authorized.
+
+---
+
+# 12. NEW BILL – FAST AND SIMPLE BILLING
+
+Create a dedicated New Bill screen.
+
+### Step 1: Select customer
+
+When the user clicks New Bill:
+
+- Show a customer search bar.
+- Display existing customers while typing.
+- Select an existing customer.
+- Add a new customer without leaving billing.
+
+After selecting the customer, show:
+
+- Customer name.
+- Shop name.
+- Mobile number.
+- Current outstanding balance.
+
+### Step 2: Add items
+
+When adding an item, follow this exact sequence:
+
+1. Select Product.
+2. Select Selling Option / Variety.
+3. Select Selling Unit if it is not already fixed by the selected option.
+4. Enter Quantity.
+5. Automatically retrieve the selling rate.
+6. Calculate the amount.
+
+### Example
+
+Product: Ragi Flour.
+
+Available selling options:
+
+- KG.
+- Bag.
+- Packet.
+- Piece.
+
+If KG is selected:
+- Show price per KG.
+- Enter KG quantity.
+- Calculate total.
+
+If Bag is selected:
+- Show price per bag.
+- Enter number of bags.
+- Calculate total.
+
+If Packet is selected:
+- Show price per packet.
+- Enter number of packets.
+- Calculate total.
+
+If Piece is selected:
+- Show price per piece.
+- Enter number of pieces.
+- Calculate total.
+
+For a box, enter the number of boxes.
+
+Do not mix different selling units in one line item.
+
+### Example bill
+
+Customer: Ravi Traders.
+
+| Product | Selling Unit | Quantity | Rate | Amount |
+|---|---|---:|---:|---:|
+| Ragi Flour | KG | 5 | ₹110 | ₹550 |
+| Ragi Flour | Bag | 2 | ₹2,400 | ₹4,800 |
+| Ragi Flour | Packet | 10 | ₹15 | ₹150 |
+| Wheat Flour | Box | 3 | ₹500 | ₹1,500 |
+
+Allow unlimited products in a single bill.
+
+### Billing calculations
+
+Automatically calculate:
+
+- Product-wise amount.
+- Total KG.
+- Total bags.
+- Total packets.
+- Total boxes.
+- Total pieces.
+- Subtotal.
+- Discount, if enabled.
+- Applicable GST.
+- Grand total.
+
+Formula:
+
+Line Amount = Quantity × Selling Price.
+
+Grand Total = Sum of Line Amounts - Discount + Tax + Additional Charges.
+
+Allow authorized users to edit rates manually.
+
+---
+
+# 13. PAYMENT STATUS – PREPAID AND POSTPAID
+
+Keep payment entry simple.
+
+Do not ask for payment app connections or bank details.
+
+Provide two primary payment statuses.
+
+### Prepaid
+
+The customer has already paid.
+
+Allow entering the amount received.
+
+### Postpaid
+
+The customer will pay later.
+
+Allow entering an amount already received, including partial payment.
+
+Automatically calculate:
+
+Remaining Balance = Total Bill Amount - Amount Paid.
+
+Display:
+
+- Total Bill Amount.
+- Amount Paid.
+- Remaining Balance.
+- Payment Status.
+
+Support partial payments and payments made later.
+
+All payments must be manually entered.
+
+Do not require a payment method during bill creation.
+
+---
+
+# 14. INVOICE DATE AND OPTIONAL GST
+
+### Invoice date
+
+- Automatically select today's date.
+- Allow manually selecting another date.
+- Allow authorized editing.
+
+### GST
+
+GST must be optional.
+
+Provide an Enable GST checkbox, disabled by default.
+
+When enabled, display the appropriate GST settings and calculations.
+
+Do not require GSTIN during customer creation.
+
+Support both GST and non-GST bill formats.
+
+Do not assume that a non-GST invoice format automatically means a transaction is exempt from GST. Tax applicability must be configured appropriately.
+
+---
+
+# 15. INVOICE GENERATION
+
+When the user clicks Save Bill:
+
+- Generate a unique invoice number.
+- Save invoice information.
+- Save customer information as a historical snapshot.
+- Save product names.
+- Save selling options.
+- Save selling units.
+- Save quantities.
+- Save rates.
+- Save totals.
+- Save payment status.
+- Save amount paid.
+- Save remaining balance.
+- Update customer history.
+- Update customer ledger.
+- Update inventory.
+- Generate printable invoice.
+
+Historical invoices must retain their original descriptions, quantities, prices, and tax details.
+
+Finalized invoices must not be silently overwritten.
+
+Use authorized correction, cancellation, and credit-note workflows with an audit trail.
+
+---
+
+# 16. MANUAL ORDER BOOKING
+
+Create a dedicated New Order module.
+
+This feature is particularly important for sales executives visiting customer shops.
+
+### Example scenario
+
+A sales executive visits Ravi Traders.
+
+The shopkeeper requests:
+
+- Ragi Flour – 100 g Packet – 20 packets.
+- Ragi Flour – 25 KG Bag – 2 bags.
+- Wheat Flour – KG – 15 KG.
+- Spices – Box – 5 boxes.
+
+The sales executive should be able to enter all these products under Ravi Traders.
+
+### Order workflow
+
+1. Click New Order.
+2. Search customer.
+3. Select existing customer or add new customer.
+4. Select product.
+5. Select selling option.
+6. Select unit where applicable.
+7. Enter quantity.
+8. Add more products.
+9. Add notes.
+10. Save order.
+
+### Order statuses
+
+- Draft.
+- Pending.
+- Confirmed.
+- Processing.
+- Packed.
+- Dispatched.
+- Delivered.
+- Cancelled.
+
+### Order functionality
+
+- View orders.
+- Edit orders.
+- Cancel orders.
+- Duplicate previous orders.
+- Search by customer.
+- Filter by date.
+- Filter by sales executive.
+- Convert order into bill.
+- Print order slip.
+- Share order details.
+
+An order must not automatically become a sale or payment.
+
+Prevent duplicate invoicing of the same order.
+
+---
+
+# 17. PAYMENT MANAGEMENT AND CUSTOMER LEDGER
+
+Maintain a complete transaction-based customer ledger.
+
+### Manual payment form
+
+Fields:
+
+- Customer.
+- Payment date.
+- Amount received.
+- Payment method.
+- Transaction reference (optional).
+- Related invoice (optional).
+- Notes.
+
+Payment methods:
+
+- Cash.
+- UPI.
+- Bank Transfer.
+- Cheque.
+- Other.
+
+These are manual recording categories only.
+
+### Supported payments
+
+- Full payment.
+- Partial payment.
+- Advance payment.
+- Payment against old invoices.
+- Payment against multiple invoices.
+
+Allow one payment to be allocated to multiple outstanding invoices.
+
+Maintain unallocated advance balances separately.
+
+### Customer ledger example
+
+Customer: Ravi Traders.
+
+| Transaction | Debit | Credit | Balance |
+|---|---:|---:|---:|
+| Invoice 001 | ₹1,000 | — | ₹1,000 |
+| Payment | — | ₹500 | ₹500 |
+| Invoice 002 | ₹2,000 | — | ₹2,500 |
+| Payment | — | ₹1,000 | ₹1,500 |
+
+Display:
+
+- Transaction date.
+- Reference number.
+- Description.
+- Debit.
+- Credit.
+- Running balance.
+
+Automatically calculate outstanding balances.
+
+Generate printable payment receipts.
+
+---
+
+# 18. INVENTORY MANAGEMENT
+
+Maintain stock independently for each product and selling option.
+
+Features:
+
+- Opening stock.
+- Purchase stock.
+- Sales deduction.
+- Returned stock.
+- Damaged stock.
+- Manual stock adjustment.
+- Reserved stock.
+- Available stock.
+- Low-stock alerts.
+- Stock movement history.
+
+### Stock calculation
+
+Available Stock = Physical Stock - Reserved Stock.
+
+Automatically decrease stock when a bill is finalized.
+
+Automatically increase stock when a purchase entry is recorded.
+
+Allow manual stock corrections with a reason.
+
+Maintain complete stock movement history.
+
+Support optional batch and expiry tracking for products that need it.
+
+---
+
+# 19. SUPPLIER AND PURCHASE MANAGEMENT
+
+Include basic supplier and purchase management.
+
+### Supplier fields
+
+- Supplier name.
+- Business name.
+- Mobile number.
+- Address.
+- GSTIN (optional).
+
+### Purchase entry
+
+- Supplier.
+- Purchase invoice number.
+- Purchase date.
+- Product.
+- Selling option / packaging.
+- Quantity.
+- Purchase rate.
+- Total amount.
+- Amount paid.
+- Remaining payable amount.
+
+Allow manual purchase entry and automatic stock updates.
+
+Maintain supplier purchase history and outstanding balances.
+
+Keep supplier purchases separate from customer sales invoices.
+
+---
+
+# 20. SALES EXECUTIVE MANAGEMENT
+
+Allow the owner to create multiple employee accounts.
+
+### Sales executive features
+
+- View assigned customers.
+- Search customers.
+- Add customers if authorized.
+- Create orders.
+- Select products.
+- Select selling options.
+- Enter quantities.
+- Add customer notes.
+- View order history.
+- Record payments if authorized.
+
+### Owner features
+
+- Assign customers.
+- View executive-wise orders.
+- View orders collected.
+- View invoiced sales.
+- View payments collected.
+- View customer assignments.
+- View employee activities.
+
+Keep order collection, invoiced sales, and payment collection as separate measurements.
+
+---
+
+# 21. RETURNS AND CANCELLATIONS
+
+Create a dedicated returns module.
+
+Features:
+
+- Select original invoice.
+- Select returned product.
+- Select selling option.
+- Enter returned quantity.
+- Calculate return amount.
+- Record return reason.
+- Record refund or customer credit.
+- Update stock if goods are accepted back.
+- Generate credit notes when applicable.
+
+Support partial returns.
+
+Damaged or rejected goods must not automatically return to sellable inventory.
+
+Maintain complete return history.
+
+---
+
+# 22. REPORTS AND ANALYTICS
+
+Generate reports using actual database records.
+
+### Sales reports
+
+- Daily sales.
+- Weekly sales.
+- Monthly sales.
+- Yearly sales.
+- Product-wise sales.
+- Category-wise sales.
+- Customer-wise sales.
+
+### Payment reports
+
+- Total payments received.
+- Outstanding balances.
+- Overdue payments.
+- Cash collections.
+- UPI-recorded collections.
+- Bank-transfer-recorded collections.
+
+### Inventory reports
+
+- Current stock.
+- Low-stock products.
+- Out-of-stock products.
+- Stock movement.
+- Damaged stock.
+- Stock valuation.
+
+### Order reports
+
+- Total orders.
+- Pending orders.
+- Delivered orders.
+- Cancelled orders.
+- Executive-wise orders.
+
+### Financial reports
+
+- Sales revenue.
+- Product purchase costs.
+- Customer receivables.
+- Supplier payables.
+- Gross profit estimates.
+
+Clearly distinguish invoiced sales, actual payments received, outstanding amounts, and estimated profit.
+
+Support PDF, CSV, and Excel exports.
+
+---
+
+# 23. ADVANCED PRINTING SYSTEM
+
+Printing is a major application requirement.
+
+Every invoice, customer record, payment receipt, and transaction history must be printable.
+
+### Supported print formats
+
+1. Full-page A4 invoice.
+2. A4 two-section bill layout.
+3. A4 four-section bill layout.
+4. Single invoice printing.
+5. Multiple copies of the same invoice.
+6. Customer details.
+7. Customer history.
+8. Customer ledger.
+9. Payment receipt.
+10. Order slip.
+11. Inventory reports.
+12. Purchase reports.
+
+### A4 four-bill printing
+
+Create a dedicated A4 template divided into four equal bill sections.
+
+When the user selects four copies, print four identical versions of the same bill on one A4 sheet.
+
+All four sections must contain:
+
+- Same invoice number.
+- Same customer details.
+- Same products.
+- Same quantities.
+- Same rates.
+- Same total amount.
+- Same payment information.
+
+Do not print labels such as:
+
+- Original.
+- Duplicate.
+- Triplicate.
+- Copy.
+
+All four bills must be identical without copy-identification text.
+
+Provide:
+
+- One copy.
+- Two copies.
+- Four copies.
+
+Support subtle cutting guides between sections.
+
+Provide a separate full-page A4 printing option.
+
+If an invoice contains too many products, use a continuation page or full-page format rather than making the text unreadably small.
+
+### Print customization
+
+Create a separate Print Settings module.
+
+Allow editing:
+
+- Business name.
+- Business logo.
+- Address.
+- Mobile number.
+- Invoice title.
+- Header.
+- Footer.
+- Font size.
+- Font family.
+- Margins.
+- Column widths.
+- Product row spacing.
+- Table borders.
+- Customer details.
+- Payment information.
+- Terms and conditions.
+- Number of bills per page.
+
+Allow showing or hiding optional fields.
+
+Provide live print preview.
+
+Allow saving multiple templates.
+
+The print editor must never modify the original financial transaction.
+
+### Customer history printing
+
+Every customer profile must have a Print Customer History option.
+
+Allow printing:
+
+- Customer details.
+- All invoices.
+- All orders.
+- All payments.
+- Customer ledger.
+- Outstanding balance.
+- Complete transaction history.
+
+Provide date filters:
+
+- Today.
+- This week.
+- This month.
+- Previous month.
+- Custom date range.
+
+Support A4 PDF and direct printing.
+
+### Payment receipts
+
+Generate printable payment receipts containing:
+
+- Receipt number.
+- Date.
+- Customer name.
+- Amount received.
+- Payment method.
+- Transaction reference.
+- Related invoice.
+- Remaining balance.
+
+### Mobile printing
+
+Support:
+
+- Android system printing.
+- Wi-Fi printers.
+- Network printers.
+- Bluetooth printers where supported.
+- PDF export.
+
+Printing must work without internet.
+
+---
+
+# 24. REMOVE THE EXPENSES MODULE
+
+Do not include an Expenses module.
+
+Do not display Expenses in:
+
+- Navigation.
+- Dashboard.
+- Reports.
+- Business settings.
+
+Keep the application focused on wholesale business operations.
+
+---
+
+# 25. BUSINESS SETTINGS
+
+Allow the owner to configure:
+
+- Business name.
+- Logo.
+- Address.
+- Mobile number.
+- GSTIN (optional).
+- GST settings.
+- Invoice numbering.
+- Default language.
+- Print templates.
+- Stock settings.
+- User permissions.
+- Backup settings.
+
+Allow selecting English, Telugu, or Hindi independently for each user.
+
+Allow selecting default invoice language and print layout.
+
+---
+
+# 26. DATABASE ARCHITECTURE
+
+Use a structured relational database.
+
+Suggested tables:
+
+1. Businesses.
+2. Users.
+3. Business Memberships.
+4. Roles.
+5. Permissions.
+6. Customers.
+7. Products.
+8. Product Categories.
+9. Product Selling Options.
+10. Product Unit Conversions.
+11. Inventory.
+12. Stock Movements.
+13. Suppliers.
+14. Purchases.
+15. Purchase Items.
+16. Orders.
+17. Order Items.
+18. Invoices.
+19. Invoice Items.
+20. Payments.
+21. Payment Allocations.
+22. Customer Ledger Entries.
+23. Returns.
+24. Return Items.
+25. Credit Notes.
+26. Print Templates.
+27. Business Settings.
+28. Activity Logs.
+29. Sync Operations.
+
+### Database rules
+
+- Unique identifiers.
+- Proper foreign keys.
+- Database indexes.
+- Decimal monetary fields.
+- Timestamps.
+- Business-level data isolation.
+- Transaction-safe financial operations.
+- Historical invoice snapshots.
+- Duplicate transaction prevention.
+- Soft deletion where appropriate.
+- Complete audit history.
+
+Store customer and product text using Unicode-compatible data types.
+
+Support Telugu and Hindi characters throughout the database.
+
+---
+
+# 27. SECURITY AND DATA PROTECTION
+
+Implement:
+
+- Secure authentication.
+- Password protection.
+- Role-based permissions.
+- Encrypted local sensitive data.
+- Protected database access.
+- Activity logs.
+- Backup and restore.
+- Duplicate transaction protection.
+- Secure synchronization.
+- Business data isolation.
+
+Financial transactions must not be permanently deleted through normal user actions.
+
+---
+
+# 28. UI/UX DESIGN
+
+Create a simple, professional, mobile-first interface.
+
+### Main navigation
+
+1. Dashboard.
+2. Customers.
+3. Products.
+4. New Bill.
+5. Orders.
+6. Payments.
+7. Inventory.
+8. Suppliers.
+9. Purchases.
+10. Employees.
+11. Reports.
+12. Settings.
+
+Do not include Expenses.
+
+### Design requirements
+
+- Large buttons.
+- Readable text.
+- Clear icons.
+- Simple labels.
+- Comfortable spacing.
+- Easy product selection.
+- Fast customer search.
+- Minimal clicks.
+- Clear confirmation messages.
+- Simple forms.
+- Telugu-friendly typography.
+
+Keep New Bill and New Order easily accessible.
+
+The application should be understandable without technical training.
+
+---
+
+# 29. ACCEPTANCE TESTING
+
+The application must successfully pass the following tests.
+
+### Customer testing
+
+1. Add customer using Telugu name.
+2. Add customer using English name.
+3. Add shop name in a different language.
+4. Search customer using English.
+5. Search customer using Telugu.
+6. Print customer history.
+
+### Product testing
+
+1. Create Ragi Flour.
+2. Add KG selling option.
+3. Add Bag selling option.
+4. Add Packet selling option.
+5. Add Box selling option.
+6. Add Piece selling option.
+7. Assign different prices.
+8. Set minimum stock independently.
+9. Configure package weight.
+10. Verify stock conversion.
+
+### Billing testing
+
+1. Select existing customer.
+2. Add new customer.
+3. Select product.
+4. Select selling option.
+5. Enter KG quantity.
+6. Enter bag quantity.
+7. Enter packet quantity.
+8. Enter box quantity.
+9. Enter piece quantity.
+10. Mix different selling options in one invoice.
+11. Verify calculations.
+12. Record prepaid transaction.
+13. Record postpaid transaction.
+14. Record partial payment.
+15. Verify outstanding balance.
+
+### Order testing
+
+1. Log in as sales executive.
+2. Select customer.
+3. Add multiple products.
+4. Select selling options.
+5. Enter quantities.
+6. Save order.
+7. Verify owner can view order.
+8. Convert order into invoice.
+
+### Inventory testing
+
+1. Add opening stock.
+2. Create a sale.
+3. Verify stock deduction.
+4. Record a purchase.
+5. Verify stock addition.
+6. Verify low-stock alert.
+7. Record a return.
+
+### Printing testing
+
+1. Print full-page A4 invoice.
+2. Print four identical bills on one A4 page.
+3. Print two copies.
+4. Verify no Original or Duplicate labels appear.
+5. Customize invoice header.
+6. Customize footer.
+7. Change fonts and margins.
+8. Print Telugu customer name.
+9. Print mixed Telugu and English information.
+10. Print complete customer history.
+11. Export PDF.
+
+### Offline testing
+
+1. Disconnect internet.
+2. Add customer.
+3. Add product.
+4. Create order.
+5. Generate invoice.
+6. Record payment.
+7. Print invoice.
+8. Close and reopen application.
+9. Verify all information remains available.
+10. Reconnect and test optional synchronization.
+
+### Language testing
+
+1. Select English.
+2. Select Telugu.
+3. Select Hindi.
+4. Verify all major screens are translated.
+5. Enter Telugu customer names.
+6. Enter English product names.
+7. Search in both languages.
+8. Print Telugu invoices.
+9. Increase font size.
+10. Verify usability for older users.
+
+---
+
+# 30. DEVELOPMENT PHASES
+
+Develop module by module.
+
+### Phase 1: Foundation
+
+- Flutter project setup.
+- SQLite database.
+- Authentication.
+- Business setup.
+- User management.
+- Language selection.
+- Dashboard.
+
+### Phase 2: Customers and Products
+
+- Customer management.
+- Product categories.
+- Product creation.
+- Selling options.
+- Independent pricing.
+- Unit conversions.
+- Stock configuration.
+
+### Phase 3: Billing and Payments
+
+- New Bill.
+- Customer selection.
+- Product selection.
+- KG/Bag/Packet/Box/Piece selection.
+- Quantity calculation.
+- Prepaid/Postpaid.
+- Partial payments.
+- Customer ledger.
+- Invoice generation.
+
+### Phase 4: Orders and Employees
+
+- Manual order booking.
+- Sales executive accounts.
+- Customer assignments.
+- Order history.
+- Order conversion into invoices.
+
+### Phase 5: Inventory and Suppliers
+
+- Inventory management.
+- Purchase entries.
+- Supplier management.
+- Stock adjustments.
+- Returns.
+
+### Phase 6: Printing
+
+- A4 invoice.
+- Four-identical-bills layout.
+- Two-copy layout.
+- Customer statements.
+- Payment receipts.
+- Telugu PDF support.
+- Print customization.
+
+### Phase 7: Offline and Synchronization
+
+- Local backups.
+- Offline functionality.
+- Optional synchronization.
+- Conflict resolution.
+- Multi-device testing.
+
+### Phase 8: Finalization
+
+- Reports.
+- Security testing.
+- Performance testing.
+- Language testing.
+- Printing testing.
+- Android APK generation.
+- Production release.
+
+---
+
+# 31. FINAL DELIVERY REQUIREMENTS
+
+Deliver a complete, working Android application.
+
+Provide:
+
+- Complete Flutter source code.
+- Local SQLite database.
+- Database migrations.
+- Optional backend and PostgreSQL schema.
+- Authentication.
+- Multi-user functionality.
+- Customer management.
+- Flexible product selling options.
+- Billing.
+- Payment management.
+- Customer ledger.
+- Order management.
+- Inventory.
+- Supplier and purchase management.
+- Returns.
+- English, Telugu, and Hindi support.
+- Offline functionality.
+- Optional synchronization.
+- Customizable A4 printing.
+- Four identical bills per A4 sheet.
+- Customer history printing.
+- PDF export.
+- Backup and restoration.
+- Testing documentation.
+- Installation instructions.
+- Android APK.
+
+Do not create only a static UI prototype.
+
+Every button, form, search, calculation, database operation, printing function, and workflow must work.
+
+Do not use hardcoded data instead of the real database.
+
+Use sample data only for demonstrations and testing.
+
+Test every module before moving to the next development phase.
+
+# FINAL PRODUCT VISION
+
+Build a complete, simple, reliable, and flexible Wholesale Business Management Application for Indian wholesale businesses.
+
+The business owner must be able to manage customers, products, product selling options, orders, bills, payments, inventory, employees, suppliers, and business reports from one Android mobile application.
+
+The most important functionality is flexible product selling.
+
+One product must be sellable in KG, Bags, Packets, Boxes, Pieces, and other configured units, with independent prices for each selling option.
+
+During product creation, the owner defines the selling options, package contents, prices, and minimum stock.
+
+During billing, the employee selects the product, selects how it is being sold, enters the quantity, and the application automatically calculates the amount.
+
+The application must maintain complete customer purchase and payment history.
+
+All bills and customer statements must be printable and customizable.
+
+Four identical bills must fit on one A4 sheet without Original or Duplicate labels.
+
+The application must work offline using local mobile storage.
+
+English and Telugu must be fully supported, with optional Hindi support.
+
+Business information can be entered in English, Telugu, or both.
+
+The application must be easy enough for older Telugu-speaking shop owners and powerful enough for multiple employees.
+
+**Build this as a real-world business application, prioritizing simplicity, flexibility, accurate calculations, reliable local storage, and professional printing.**

@@ -1,0 +1,6 @@
+{
+  "name": "VyaparDesk",
+  "description": "Offline-first wholesale business management app for billing, flexible multi-unit products, orders, customer ledger, inventory, suppliers, and Telugu/English/Hindi A4 printing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
